@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TresEnLinea.controller.Controller">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <MenuBar fx:id="menuBar1" prefHeight="29.0" prefWidth="600.0">
+              <menus>
+                <Menu fx:id="menuArxiu" mnemonicParsing="false" text="Arxiu">
+                  <items>
+                        <MenuItem fx:id="menuItemReiniciar" mnemonicParsing="false" text="Reinicia" />
+                        <MenuItem fx:id="menuItemTancar" mnemonicParsing="false" text="Tancar" />
+                  </items>
+                </Menu>
+                  <Menu fx:id="menuVista" mnemonicParsing="false" text="Vista">
+                    <items>
+                        <MenuItem fx:id="menuItemFosc" mnemonicParsing="false" text="Estil fosc" />
+                        <MenuItem fx:id="menuItemClar" mnemonicParsing="false" text="Estil clar" />
+                    </items>
+                  </Menu>
+                  <Menu fx:id="menuMarcador" mnemonicParsing="false" text="Marcador">
+                        <items>
+                      <MenuItem fx:id="menuItemClassificacio" mnemonicParsing="false" text="Classificacio de la sessio" />
+                    </items>
+                  </Menu>
+                <Menu fx:id="menuAjuda" mnemonicParsing="false" text="Ajuda">
+                  <items>
+                        <MenuItem fx:id="menuItemGuia" mnemonicParsing="false" text="Guia" />
+                        <MenuItem fx:id="menuItemSobre" mnemonicParsing="false" text="Sobre" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <SplitPane dividerPositions="0.657190635451505" layoutY="28.0" prefHeight="371.0" prefWidth="600.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <GridPane fx:id="tauler" layoutX="12.0" layoutY="15.0" prefHeight="342.0" prefWidth="362.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="102.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="0.0" prefWidth="98.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ToggleButton fx:id="casella00" mnemonicParsing="false" onAction="#tirada" prefHeight="169.0" prefWidth="206.0" />
+                              <ToggleButton fx:id="casella10" mnemonicParsing="false" onAction="#tirada" prefHeight="150.0" prefWidth="202.0" GridPane.columnIndex="1" />
+                              <ToggleButton fx:id="casella01" mnemonicParsing="false" onAction="#tirada" prefHeight="144.0" prefWidth="157.0" GridPane.rowIndex="1" />
+                              <ToggleButton fx:id="casella11" mnemonicParsing="false" onAction="#tirada" prefHeight="205.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ToggleButton fx:id="casella20" mnemonicParsing="false" onAction="#tirada" prefHeight="167.0" prefWidth="172.0" GridPane.columnIndex="2" />
+                              <ToggleButton fx:id="casella21" mnemonicParsing="false" onAction="#tirada" prefHeight="153.0" prefWidth="193.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <ToggleButton fx:id="casella02" mnemonicParsing="false" onAction="#tirada" prefHeight="140.0" prefWidth="171.0" GridPane.rowIndex="2" />
+                              <ToggleButton fx:id="casella12" mnemonicParsing="false" onAction="#tirada" prefHeight="145.0" prefWidth="194.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <ToggleButton fx:id="casella22" mnemonicParsing="false" onAction="#tirada" prefHeight="145.0" prefWidth="145.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label layoutX="15.0" layoutY="29.0" prefHeight="15.0" prefWidth="171.0" text="Jugador 1" />
+                        <TextField fx:id="nomJugador1" layoutX="15.0" layoutY="52.0" />
+                        <Label layoutX="15.0" layoutY="103.0" prefHeight="15.0" prefWidth="171.0" text="Jugador 2" />
+                        <TextField fx:id="nomJugador2" layoutX="15.0" layoutY="125.0" />
+                        <Label fx:id="tornDisplay" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="185.0" prefHeight="50.0" prefWidth="171.0" textAlignment="CENTER">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="botoNovaPartida" layoutX="17.0" layoutY="274.0" mnemonicParsing="false" onAction="#startNovaPartida" prefHeight="84.0" prefWidth="171.0" text="Nova partida" />
+                     </children></AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
