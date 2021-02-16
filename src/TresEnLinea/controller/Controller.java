@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -32,15 +33,46 @@ public class Controller implements Initializable {
 
     }
 
-    public void tirada(ActionEvent actionEvent) {
+    int torn = 0;
+    String x = "X";
+    String o = "O";
 
-        casella00.setText("X");
+    public void tirada(ActionEvent actionEvent) {
+        torn++;
+        ToggleButton b = (ToggleButton) actionEvent.getSource();
+
+        if (torn %2 == 0){
+
+            do {
+                if (b.getText().equals("")) {
+                    b.setText("O");
+                }
+            } while (!b.getText().equals(""));
+            tornDisplay.setText("Torn del jugador 1");
+        } else {
+            if (b.getText().equals("")) {
+            b.setText("X");
+        }
+            tornDisplay.setText("Torn del jugador 2");
+        }
     }
 
     public void startNovaPartida(ActionEvent actionEvent) {
-        String nomJugador = nomJugador1.toString();
 
-        Jugador j1 = new Jugador(nomJugador);
+        Jugador j1 = new Jugador(nomJugador1.toString());
+
+        Jugador j2 = new Jugador(nomJugador2.toString());
+
+        torn = 0;
+
         casella00.setText("");
+        casella10.setText("");
+        casella20.setText("");
+        casella01.setText("");
+        casella11.setText("");
+        casella21.setText("");
+        casella02.setText("");
+        casella12.setText("");
+        casella22.setText("");
     }
 }

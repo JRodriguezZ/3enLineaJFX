@@ -69,11 +69,11 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <Label layoutX="15.0" layoutY="29.0" prefHeight="15.0" prefWidth="171.0" text="Jugador 1" />
-                        <TextField fx:id="nomJugador1" layoutX="15.0" layoutY="52.0" />
-                        <Label layoutX="15.0" layoutY="103.0" prefHeight="15.0" prefWidth="171.0" text="Jugador 2" />
-                        <TextField fx:id="nomJugador2" layoutX="15.0" layoutY="125.0" />
-                        <Label fx:id="tornDisplay" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="185.0" prefHeight="50.0" prefWidth="171.0" textAlignment="CENTER">
+                        <Label layoutX="16.0" layoutY="20.0" prefHeight="15.0" prefWidth="171.0" text="Jugador 1" />
+                        <TextField fx:id="nomJugador1" layoutX="16.0" layoutY="43.0" prefHeight="25.0" prefWidth="171.0" />
+                        <Label layoutX="17.0" layoutY="90.0" prefHeight="15.0" prefWidth="171.0" text="Jugador 2" />
+                        <TextField fx:id="nomJugador2" layoutX="17.0" layoutY="112.0" prefHeight="25.0" prefWidth="171.0" />
+                        <Label fx:id="tornDisplay" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="185.0" prefHeight="50.0" prefWidth="171.0" text="Torn del jugador 1" textAlignment="CENTER">
                            <font>
                               <Font size="17.0" />
                            </font>
