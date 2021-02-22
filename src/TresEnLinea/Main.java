@@ -15,7 +15,6 @@ public class Main extends Application {
 
 //        scene.getStylesheets().add("yourmom");
 
-
         primaryStage.setTitle("Tres en linea");
         primaryStage.setScene(scene);
         primaryStage.show();
