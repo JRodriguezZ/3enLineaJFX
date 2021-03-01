@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.paint.Paint;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,16 +26,18 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        nomJugador1.setText("Jugador 1");
-        nomJugador2.setText("Jugador 2");
-
-        decidirTorn();
+        nomJugador1.setText("Nom Jugador 1");
+        nomJugador2.setText("Nom Jugador 2");
 
         netejarCaselles();
     }
 
     int torn = 0;
     int[][] casella = new int[3][3];
+    String colorJ1 = "#00bf1d";
+    Paint paintJ1 = Paint.valueOf(colorJ1);
+    String colorJ2 = "#0095eb";
+    Paint paintJ2 = Paint.valueOf(colorJ2);
 
     public void tirada(ActionEvent actionEvent) {
         ToggleButton b = (ToggleButton) actionEvent.getSource();
@@ -50,6 +53,7 @@ public class Controller implements Initializable {
                 casella[i][x] = 1;
             }
             tornDisplay.setText("Torn del jugador 1");
+            tornDisplay.setTextFill(paintJ1);
 
         } else {
             if (casella[i][x] == 1 || casella[i][x] == 2) {
@@ -59,7 +63,7 @@ public class Controller implements Initializable {
                 casella[i][x] = 2;
             }
             tornDisplay.setText("Torn del jugador 2");
-
+            tornDisplay.setTextFill(paintJ2);
         }
 
         winCondition();
@@ -67,8 +71,17 @@ public class Controller implements Initializable {
     }
 
 
-    private void tiradaCPU(ActionEvent actionEvent) {
-    }
+//    private void tiradaCPU() {
+//        int random1 = (int) (Math.random()*(0) * 2);
+//        int random2 = (int) (Math.random()*(0) * 2);
+//        System.out.println(random1);
+//        System.out.println(random2);
+//
+//        int i = Integer.parseInt(casella00.getId().substring(7,8));
+//        int x = Integer.parseInt(b.getId().substring(8,9));
+//
+//        if ()
+//    }
 
     public void startNovaPartida(ActionEvent actionEvent) {
 
@@ -81,6 +94,7 @@ public class Controller implements Initializable {
 
         if (j1.equals("") || j2.equals("")) {
 //            tiradaCPU();
+
         }
 
         torn = 0;
@@ -90,10 +104,11 @@ public class Controller implements Initializable {
         netejarCaselles();
     }
 
-
     public void winCondition() {
         boolean winJ1 = false;
         boolean winJ2 = false;
+        boolean empat = false;
+
         if (casella[0][0] + casella[0][1] + casella[0][2] == 3 ||
                 casella[1][0] + casella[1][1] + casella[1][2] == 3 ||
                 casella[2][0] + casella[2][1] + casella[2][2] == 3 ||
@@ -114,7 +129,6 @@ public class Controller implements Initializable {
             winJ2 = true;
         }
 
-
         if (winJ1){
             tornDisplay.setText(nomJugador1.getText() + " ha guanyat!");
             nomJugador1.setEditable(true);
@@ -124,7 +138,6 @@ public class Controller implements Initializable {
             nomJugador1.setEditable(true);
             nomJugador2.setEditable(true);
         }
-
     }
 
     public void decidirTorn() {
