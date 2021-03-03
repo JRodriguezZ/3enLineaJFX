@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.paint.Paint;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -22,12 +24,25 @@ public class Controller implements Initializable {
 
     @FXML private Button botoNovaPartida;
 
+    private ArrayList<ToggleButton> llistaCaselles = new ArrayList<>();
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         nomJugador1.setText("Nom Jugador 1");
         nomJugador2.setText("Nom Jugador 2");
+
+        llistaCaselles.add(casella00);
+        llistaCaselles.add(casella10);
+        llistaCaselles.add(casella20);
+        llistaCaselles.add(casella01);
+        llistaCaselles.add(casella11);
+        llistaCaselles.add(casella21);
+        llistaCaselles.add(casella02);
+        llistaCaselles.add(casella12);
+        llistaCaselles.add(casella22);
 
         netejarCaselles();
     }
@@ -70,18 +85,36 @@ public class Controller implements Initializable {
         torn++;
     }
 
+    private void tiradaCPU() {
+        boolean posat = false;
 
-//    private void tiradaCPU() {
-//        int random1 = (int) (Math.random()*(0) * 2);
-//        int random2 = (int) (Math.random()*(0) * 2);
-//        System.out.println(random1);
-//        System.out.println(random2);
-//
-//        int i = Integer.parseInt(casella00.getId().substring(7,8));
-//        int x = Integer.parseInt(b.getId().substring(8,9));
-//
-//        if ()
-//    }
+        while (!posat) {
+            ToggleButton b = llistaCaselles.get((int) (Math.random() * 9));
+            int i = Integer.parseInt(b.getId().substring(7,8));
+            int x = Integer.parseInt(b.getId().substring(8,9));
+
+            if (torn %2 == 0) {
+                if (casella[i][x] == 1 || casella[i][x] == 2) {
+                    b.setSelected(true);
+                } else {
+                    b.setText("O");
+                    casella[i][x] = 1;
+                }
+                tornDisplay.setText("Torn del jugador 1");
+                tornDisplay.setTextFill(paintJ1);
+                posat = true;
+            } else {
+                if (casella[i][x] == 1 || casella[i][x] == 2) {
+                    b.setSelected(true);
+                } else {
+                    b.setText("X");
+                    casella[i][x] = 2;
+                }
+                tornDisplay.setText("Torn del jugador 2");
+                tornDisplay.setTextFill(paintJ2);
+            }
+        }
+    }
 
     public void startNovaPartida(ActionEvent actionEvent) {
 
