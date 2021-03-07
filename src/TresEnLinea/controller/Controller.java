@@ -122,8 +122,8 @@ public class Controller implements Initializable {
 
         Jugador j2 = new Jugador(nomJugador2.toString());
 
-        nomJugador1.setEditable(false);
-        nomJugador2.setEditable(false);
+        nomJugador1.setDisable(true);
+        nomJugador2.setDisable(true);
 
         if (j1.equals("") || j2.equals("")) {
 //            tiradaCPU();
@@ -164,12 +164,12 @@ public class Controller implements Initializable {
 
         if (winJ1){
             tornDisplay.setText(nomJugador1.getText() + " ha guanyat!");
-            nomJugador1.setEditable(true);
-            nomJugador2.setEditable(true);
+            nomJugador1.setDisable(false);
+            nomJugador2.setDisable(false);
         } else if (winJ2) {
             tornDisplay.setText(nomJugador2.getText() + " ha guanyat!");
-            nomJugador1.setEditable(true);
-            nomJugador2.setEditable(true);
+            nomJugador1.setDisable(false);
+            nomJugador2.setDisable(false);
         }
     }
 
